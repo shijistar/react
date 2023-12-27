@@ -301,7 +301,12 @@ const rule = {
         const definitionNode: VariableDeclarator = def.node;
         const id = definitionNode.id;
         const {name} = callee;
-        if (name === 'useRef' && id.type === 'Identifier') {
+        if (
+          (name === 'useRef' ||
+            name === 'useRefObject' ||
+            name === 'useRefFunction') &&
+          id.type === 'Identifier'
+        ) {
           // useRef() return value is stable.
           return true;
         } else if (
