@@ -220,7 +220,12 @@ export default {
         }
         const id = def.node.id;
         const {name} = callee;
-        if ((name === 'useRef' || name === 'useRefObject') && id.type === 'Identifier') {
+        if (
+          (name === 'useRef' ||
+            name === 'useRefObject' ||
+            name === 'useIsDestroyed') &&
+          id.type === 'Identifier'
+        ) {
           // useRef() return value is stable.
           return true;
         } else if (name === 'useState' || name === 'useReducer') {
