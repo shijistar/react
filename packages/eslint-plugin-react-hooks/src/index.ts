@@ -19,15 +19,15 @@ const rules = {
 
 // Config rules
 const configRules = {
-  'react-hooks/rules-of-hooks': 'error',
-  'react-hooks/exhaustive-deps': 'warn',
+  '@tiny-codes/react-hooks/rules-of-hooks': 'error',
+  '@tiny-codes/react-hooks/exhaustive-deps': 'warn',
 } satisfies Linter.RulesRecord;
 
 // Flat config
 const recommendedConfig = {
-  name: 'react-hooks/recommended',
+  name: '@tiny-codes/react-hooks/recommended',
   plugins: {
-    get 'react-hooks'(): ESLint.Plugin {
+    get '@tiny-codes/react-hooks'(): ESLint.Plugin {
       return plugin;
     },
   },
@@ -38,12 +38,12 @@ const recommendedConfig = {
 const plugin = {
   // TODO: Make this more dynamic to populate version from package.json.
   // This can be done by injecting at build time, since importing the package.json isn't an option in Meta
-  meta: {name: 'eslint-plugin-react-hooks'},
+  meta: {name: '@tiny-codes/react-hooks'},
   rules,
   configs: {
     /** Legacy recommended config, to be used with rc-based configurations */
     'recommended-legacy': {
-      plugins: ['react-hooks'],
+      plugins: ['@tiny-codes/react-hooks'],
       rules: configRules,
     },
 

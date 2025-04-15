@@ -303,7 +303,7 @@ const rule = {
         const {name} = callee;
         if (
           (name === 'useRef' ||
-            name === 'useRefObject' ||
+            name === 'useRefValue' ||
             name === 'useRefFunction') &&
           id.type === 'Identifier'
         ) {

@@ -21,7 +21,9 @@
     "react"
   ],
   "scripts": {
+    "build": "cd ../../ && yarn prebuild --type=node eslint-plugin-react-hooks/index",
     "build:compiler": "cd ../../compiler && yarn workspace babel-plugin-react-compiler build",
+    "pub": "node scripts/publish.js",
     "test": "yarn build:compiler && jest",
     "typecheck": "tsc --noEmit"
   },
@@ -65,5 +67,9 @@
     "eslint-v9": "npm:eslint@^9.0.0",
     "jest": "^29.5.0",
     "typescript": "^5.4.3"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
